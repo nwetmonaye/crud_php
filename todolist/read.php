@@ -9,6 +9,7 @@
 
 <body>
     <h1>Tasks List:</h1>
+    <a href="create.php" style="margin-bottom:20px">Create Page</a><br><br>
     <table border="1">
         <thead>
             <tr>
@@ -26,7 +27,7 @@
 
             $totalRow = mysqli_num_rows($query);
             while($row = mysqli_fetch_assoc($query)){
-                $time = date('g:i:a',strtotime($row['created_date']));
+                $time = date('d-m-Y h:i',strtotime($row['created_date']));
                 echo "
                 <tr>
                     <td>{$row['id']}</td>
@@ -34,7 +35,7 @@
                     <td>$time</td>
                     <td>
                         <a href='#'>Update</a> |
-                        <a href='#'>Delete</a>
+                        <a href='delete.php?id={$row['id']}'>Delete</a>
                     </td>
                  </tr>";
             }

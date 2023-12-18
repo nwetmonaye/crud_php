@@ -8,7 +8,8 @@
 </head>
 
 <body>
-    <h1>todo list</h1>
+    <h1>Todo list</h1>
+    <a href="read.php" style="margin-bottom:20px">List Page</a><br><br>
     <form method="POST">
         <label for="name">Your Tasks</label>
         <input type="text" name="taskName" id="name" placeholder="Enter Your Tasks..">
@@ -23,7 +24,7 @@
            }else{
             $sql = " INSERT INTO work (name) VALUES ('$taskName') ";
             if(mysqli_query($connection,$sql)){
-                echo "Insert Success..";
+               header("location:read.php");
             }else{
                 echo "Query Fail.." . mysqli_error();
             }
