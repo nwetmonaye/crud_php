@@ -12,24 +12,21 @@
     <a href="read.php" style="margin-bottom:20px">List Page</a><br><br>
     <form method="POST">
         <label for="name">Your Tasks</label>
-        <input type="text" name="taskName" id="name" placeholder="Enter Your Tasks..">
+        <input type="text" name="taskName" id="name" placeholder="Enter Your Tasks.." required>
         <button name="addBtn">Add</button>
     </form>
     <?php
     require_once("./db_connection.php");
         if(isset($_POST['addBtn'])){
            $taskName = $_POST['taskName'];
-           if($taskName == "" || $taskName == null){
-            echo "<small style='color:red;'>Message is required</small>";
-           }else{
+         
             $sql = " INSERT INTO work (name) VALUES ('$taskName') ";
             if(mysqli_query($connection,$sql)){
                header("location:read.php");
             }else{
                 echo "Query Fail.." . mysqli_error();
             }
-           }
-           
+          
         }
     ?>
 </body>

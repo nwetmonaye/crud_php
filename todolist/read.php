@@ -34,7 +34,7 @@
                     <td>{$row['name']}</td>
                     <td>$time</td>
                     <td>
-                        <a href='#'>Update</a> |
+                        <a href='update.php?id={$row['id']}'>Update</a> |
                         <a href='delete.php?id={$row['id']}'>Delete</a>
                     </td>
                  </tr>";
